@@ -1,10 +1,19 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
+    <style>
+    .textinput, .emailinput {
+        width: 450px;
+    }
 
-    <h2>Zarejestruj sie</h2>
+    </style>
+
+    <h3>Zarejestruj się</h3>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy }}
         <button class='btn btn-success' type="submit">Zarejestruj się</button>
     </form>
 {% endblock content %}
+
+

@@ -27,7 +27,7 @@
 <body>
 
 <header>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary" style="font-size: 20px">
         <a class="navbar-brand fas fa-graduation-cap" href="/"> E-courses4U </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="">Ogloszenia</a></li>
+                    <a class="nav-link" href="">Nasze Kursy</a></li>
                 <li class="nav-item">
                     {% if user.is_authenticated %}
 
@@ -88,17 +88,17 @@
             <a class="btn btn-primary" href="#">Powrót na górę</a>
         </p>
         {% now "Y" as current_year %}
-        <p style="text-align: center"><i class="fas fa-graduation-cap"></i> E-courses4U {{ current_year }}</p>
+        <p style="text-align: center;padding-top: 30px;color: black"><i class="fas fa-graduation-cap"></i> E-courses4U {{ current_year }}</p>
         <div style="float: right">
             <a href="https://www.facebook.com/" target="_blank">
-                <i class="fab fa-facebook-square mr-4 icon-social"></i>
+                <i class="fab fa-facebook-square mr-4 icon-social bg-white"></i>
             </a>
             <a href="https://twitter.com/" target="_blank">
-                <i class="fab fa-twitter-square mr-4 icon-social"></i>
+                <i class="fab fa-twitter-square mr-4 icon-social bg-white"></i>
 
             </a>
             <a href="https://www.instagram.com/" target="_blank">
-                <i class="fab fa-instagram icon-social"></i>
+                <i class="fab fa-instagram icon-social bg-white"></i>
             </a>
         </div>
     </div>
