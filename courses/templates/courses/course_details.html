@@ -3,10 +3,27 @@
 
     <div class="row">
         <div class="col-sm-8">
-            <h4>{{ lesson.name }}</h4>
+            {% if not request.user.is_authenticated %}
+                <h4>{{ lesson.name }}</h4>
+                {{ lesson.cours_content_short|safe }}
 
-            <h4>{{ lesson.content|safe }}</h4>
+                 <p>Aby przeglądać tą stronę musisz się zalogować</p>
+                <a href="{% url 'login' %}" class="btn btn-success btn-lg "
+               role="button" aria-disabled="true">Zaloguj się</a>
+                {% elif lesson.course_type == 0  %}
+                  <h4>{{ lesson.name }}</h4>
+                {{ lesson.content|safe }}
+
+            {% else %}
+                <h4>{{ lesson.name }}</h4>
+                {{ lesson.cours_content_short|safe }}
+
+                <p>Aby przeglądać wszystkie zasoby na nastej stronie wykup konto premium</p>
+                <a href="" class="btn btn-warning btn-lg " style="color: white"
+               role="button" aria-disabled="true">Wykup konto premium</a>
+            {% endif %}
         </div>
+
         <div class="col-sm-4">
 
             <ul style="list-style: none">

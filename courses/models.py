@@ -41,6 +41,9 @@ class Course(models.Model):
             self.slug = slugify(self.name.lower().replace('ł', 'l'))
         super(Course, self).save(*args, **kwargs)
 
+    def cours_content_short(self):
+        return self.content[0:20]
+
     def __str__(self):
         return f'{self.category} - {self.name}'
 
