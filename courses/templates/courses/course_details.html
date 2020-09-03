@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-sm-8">
+            <h4>{{ lesson.name }}</h4>
+
+            <h4>{{ lesson.content|safe }}</h4>
+        </div>
+        <div class="col-sm-4">
+
+            <ul style="list-style: none">
+                {% for lesson_link in course_list %}
+                    {% if lesson_link.id == lesson.id %}
+
+                        <strong>
+                            <li><a style="color: #002752"
+                                   href="{% url 'lesson' lesson_link.id  lesson_link.category.slug %}">{{ lesson_link.name }}</a>
+                            </li>
+                        </strong>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'lesson' lesson_link.id  lesson_link.category.slug %}">{{ lesson_link.name }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}
+

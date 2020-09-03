@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'courses',
     'accounts',
     'crispy_forms',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
