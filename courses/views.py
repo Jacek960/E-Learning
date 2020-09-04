@@ -1,8 +1,13 @@
 import random
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import View
 # Create your views here.
+from django.views.generic import CreateView
+
+from courses.forms import OrderForm
 from courses.models import Category, Course, Banner
 
 
@@ -35,4 +40,21 @@ class LessonDetailsView(View):
         course_list = Course.objects.filter(category=category)
         lesson = Course.objects.get(id=id)
         return render(request, 'courses/course_details.html', {'lesson': lesson,'course_list':course_list})
+
+class PremiumOrderCreateView(LoginRequiredMixin,CreateView):
+    form_class = OrderForm
+    success_url = reverse_lazy('categorys_list')
+    template_name = 'courses/order_premium.html'
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.user = self.request.user
+        obj.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return self.request.GET.get('next', self.success_url)
+
+
+
 
