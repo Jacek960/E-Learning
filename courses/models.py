@@ -47,6 +47,15 @@ class Course(models.Model):
     def __str__(self):
         return f'{self.category} - {self.name}'
 
+class Banner(models.Model):
+    name = models.CharField(max_length=64)
+    image = models.ImageField(upload_to='baner/')
+    url = models.CharField(max_length=350,blank=True, null=True)
+    is_active = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
 
 
 

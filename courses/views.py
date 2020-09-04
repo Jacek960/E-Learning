@@ -3,7 +3,7 @@ import random
 from django.shortcuts import render
 from django.views import View
 # Create your views here.
-from courses.models import Category, Course
+from courses.models import Category, Course, Banner
 
 
 class HomePageView(View):
@@ -11,7 +11,8 @@ class HomePageView(View):
         category_shuffle_list = list(Category.objects.all())
         random.shuffle(category_shuffle_list)
         category_shuffle_list = category_shuffle_list[0:3]
-        return render(request, 'courses/home.html',{'category_shuffle_list':category_shuffle_list})
+        banner = list(Banner.objects.filter(is_active=True))
+        return render(request, 'courses/home.html',{'category_shuffle_list':category_shuffle_list,'banner':banner})
 
 
 

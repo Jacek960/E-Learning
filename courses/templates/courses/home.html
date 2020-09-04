@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>home page</h1>
-
-        <div class="row">
-{% for category in category_shuffle_list  %}
-{% include "courses/category_card.html" %}
-{% endfor %}
+    <br>
+    <br>
+    {% include "courses/banner.html" %}
+    <br>
+    <br>
+    <div class="row">
+        {% for category in category_shuffle_list %}
+            {% include "courses/category_card.html" %}
+        {% endfor %}
     </div>
 
 {% endblock %}
