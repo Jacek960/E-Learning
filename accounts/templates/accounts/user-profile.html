@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Profil " {{ user.username  }} "{% endblock %}
+{% block title %}Profil {{ user.username }} - E-courses4U {% endblock %}
 {% block content %}
     <div class="container">
         <table class="table table-striped">
@@ -27,7 +27,11 @@
             </tr>
             <tr>
                 <td>Typ konta</td>
-                <td>{{ user.profile.premium|yesno:"Premium,Darmowe" }}</td>
+                {% if user.profile.premium %}
+                    <td>{{ user.profile.premium|yesno:"Premium,Darmowe" }}, Typ: {{ user.profile.product }}</td>
+                {% else %}
+                    <td>{{ user.profile.premium|yesno:"Premium,Darmowe" }}</td>
+                {% endif %}
             </tr>
             </tbody>
         </table>
