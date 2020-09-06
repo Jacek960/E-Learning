@@ -49,7 +49,7 @@ Project is: _in progress_, More to be add
 
 ## Credits
 Photos for project used from [Unsplash](https://unsplash.com/) Thank you all!
-<span>Banner photo by <a href="https://unsplash.com/@cdr6934?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Chris Ried</a> on <a href="https://unsplash.com/s/photos/code?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+<span>Banner photo by <a href="https://unsplash.com/@cdr6934">Chris Ried</a> on <a href="https://unsplash.com/s/photos/code?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 
 ## Contact
 Created by [Jacek960](mailto:j.kuciel@outlook.com)- feel free to contact me!
