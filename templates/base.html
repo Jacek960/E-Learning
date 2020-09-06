@@ -37,8 +37,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-{#                    <a class="nav-link" style="color: white; background-color: #00006a;border-radius: 10px;border:solid 1px blue" href="{% url 'categorys_list' %}">Nasze Kursy</a></li>#}
-            <a class="btn btn-danger btn-lg" href="{% url 'categorys_list' %}">Nasze Kursy</a></li>
+                    <a class="btn btn-danger btn-lg" href="{% url 'categorys_list' %}">Nasze Kursy</a></li>
                 <li class="nav-item">
                     {% if user.is_authenticated %}
 
@@ -49,14 +48,14 @@
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Witaj {{ user.username }}!
                             </a>
-                        {% if user.profile.premium %}
-                            <li class="btn-warning btn-sm" style="height: 30px; color: white">Premium</li>
+                            {% if user.profile.premium %}
+                                <li class="btn-warning btn-sm" style="height: 30px; color: white">Premium</li>
                             {% else %}
                             {% endif %}
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'user_profile' %}">Twój profil</a>
-                                <a class="dropdown-item" href="/accounts/password_change/">Zmień hasło</a>
-                            </div>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'user_profile' %}">Twój profil</a>
+                            <a class="dropdown-item" href="/accounts/password_change/">Zmień hasło</a>
+                        </div>
                         <li class="nav-item">
                             <a class="nav-link " href="{% url 'logout' %}">Wyloguj się</a></li>
                     {% else %}
@@ -80,7 +79,8 @@
             <a class="btn btn-danger" style="float: right" href="#">Powrót na górę</a>
         </p>
         {% now "Y" as current_year %}
-        <p style="text-align: center;padding-top: 30px;color: white"><i class="fas fa-graduation-cap"></i> E-courses4U {{ current_year }}</p>
+        <p style="text-align: center;padding-top: 30px;color: white"><i class="fas fa-graduation-cap"></i>
+            E-courses4U {{ current_year }}</p>
         <div style="float: right;padding:15px;background-color: white;border-radius: 5px">
             <a href="https://www.facebook.com/" target="_blank">
                 <i class="fab fa-facebook-square fa-2x mr-1 icon-social"></i>

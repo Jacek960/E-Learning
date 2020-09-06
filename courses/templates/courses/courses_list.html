@@ -2,9 +2,9 @@
 {% block title %}Nasze kursy- E-courses4U {% endblock %}
 {% block content %}
     <div class="row">
-{% for category in categorys_list  %}
-{% include "courses/category_card.html" %}
-{% endfor %}
+        {% for category in categorys_list %}
+            {% include "courses/category_card.html" %}
+        {% endfor %}
     </div>
 {% endblock %}
 

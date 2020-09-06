@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-sm-8">
-{#       .............user must be logged in............#}
+            {#       .............user must be logged in............#}
             {% if not request.user.is_authenticated %}
                 <h4>{{ lesson.name }}</h4>
                 {{ lesson.cours_content_short|safe }}
@@ -14,12 +14,12 @@
                 <a href="{% url 'login' %}" class="btn btn-success btn-lg "
                    role="button" aria-disabled="true">Zaloguj się</a>
 
-{#       .............free content ............#}
+                {#       .............free content ............#}
             {% elif lesson.course_type == 0 %}
                 <h4>{{ lesson.name }}</h4>
                 {{ lesson.content|safe }}
 
-{#       .............premium content and free account profile ............#}
+                {#       .............premium content and free account profile ............#}
             {% elif  user.profile.premium == False and lesson.course_type == 1 %}
                 <h4>{{ lesson.name }}</h4>
                 {{ lesson.cours_content_short|safe }}
@@ -30,7 +30,7 @@
                 <a href="{% url 'order_premium' %}" class="btn btn-warning btn-lg " style="color: white"
                    role="button" aria-disabled="true">Wykup konto premium</a>
 
-{#       .............premium content and premium account profile ............#}
+                {#       .............premium content and premium account profile ............#}
             {% else %}
                 <h4>{{ lesson.name }}</h4>
                 {{ lesson.content|safe }}

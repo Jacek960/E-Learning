@@ -5,13 +5,13 @@ from django.contrib.auth.models import User
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=75, required=True, help_text="Wymagane pole - wprowadz poprawny email adres")
+
     class Meta(UserCreationForm):
         model = User
-        fields = ('username', 'email','password1', 'password2')
+        fields = ('username', 'email', 'password1', 'password2')
 
 
 class UserUpdateForm(forms.ModelForm):
-
     class Meta:
         model = User
-        fields = ( 'email', 'first_name', 'last_name', )
+        fields = ('email', 'first_name', 'last_name',)

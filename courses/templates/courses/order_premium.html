@@ -2,15 +2,15 @@
 {% block title %}Zamów premium- E-courses4U {% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
-            <style>
-    .select{
-        width: 450px;
-    }
+    <style>
+        .select {
+            width: 450px;
+        }
     </style>
-<form action="" method="post" >
-    {% csrf_token %}
-    {{ form|crispy }}
-     <button class="btn btn-success" type="submit">Zamów</button>
-</form>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-success" type="submit">Zamów</button>
+    </form>
     <br>
 {% endblock %}

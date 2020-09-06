@@ -21,10 +21,12 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
 COURSE_TYPES = (
     (0, "Free"),
     (1, "Premium")
 )
+
 
 class Course(models.Model):
     name = models.CharField(max_length=250)
@@ -48,14 +50,16 @@ class Course(models.Model):
     def __str__(self):
         return f'{self.category} - {self.name}'
 
+
 class Banner(models.Model):
     name = models.CharField(max_length=64)
     image = models.ImageField(upload_to='baner/')
-    url = models.CharField(max_length=350,blank=True, null=True)
+    url = models.CharField(max_length=350, blank=True, null=True)
     is_active = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
+
 
 class Premium(models.Model):
     name = models.CharField(max_length=64)
@@ -65,10 +69,11 @@ class Premium(models.Model):
     def __str__(self):
         return self.name
 
+
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     order_date = models.DateTimeField(auto_now_add=True)
-    product = models.ForeignKey(Premium,on_delete=models.CASCADE)
+    product = models.ForeignKey(Premium, on_delete=models.CASCADE)
     payment_status = models.BooleanField(default=False)
 
     def __str__(self):
@@ -77,21 +82,15 @@ class Order(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Premium,on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Premium, on_delete=models.SET_NULL, null=True)
     premium = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.user}-{self.product}------premium status {self.premium}'
 
+
 def create_profile(sender, user, request, **kwargs):
     Profile.objects.get_or_create(user=user)
 
+
 user_logged_in.connect(create_profile)
-
-
-
-
-
-
-
-
