@@ -49,6 +49,10 @@
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Witaj {{ user.username }}!
                             </a>
+                        {% if user.profile.premium %}
+                            <li class="btn-warning btn-sm" style="height: 30px; color: white">Premium</li>
+                            {% else %}
+                            {% endif %}
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{% url 'user_profile' %}">Twój profil</a>
                                 <a class="dropdown-item" href="/accounts/password_change/">Zmień hasło</a>

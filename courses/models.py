@@ -43,7 +43,7 @@ class Course(models.Model):
         super(Course, self).save(*args, **kwargs)
 
     def cours_content_short(self):
-        return self.content[0:20]
+        return self.content[0:240]
 
     def __str__(self):
         return f'{self.category} - {self.name}'

@@ -8,8 +8,9 @@
             {% if not request.user.is_authenticated %}
                 <h4>{{ lesson.name }}</h4>
                 {{ lesson.cours_content_short|safe }}
+                <br>
 
-                <p>Aby przeglądać tą stronę musisz się zalogować</p>
+                <p style="margin-top: 20px"><strong>Aby przeglądać tą stronę musisz się zalogować</strong></p>
                 <a href="{% url 'login' %}" class="btn btn-success btn-lg "
                    role="button" aria-disabled="true">Zaloguj się</a>
 
@@ -22,8 +23,10 @@
             {% elif  user.profile.premium == False and lesson.course_type == 1 %}
                 <h4>{{ lesson.name }}</h4>
                 {{ lesson.cours_content_short|safe }}
+                <br>
+                <br>
 
-                <p>Aby przeglądać wszystkie zasoby na nastej stronie wykup konto premium</p>
+                <p><strong>Aby przeglądać wszystkie zasoby na nastej stronie wykup konto premium</strong></p>
                 <a href="{% url 'order_premium' %}" class="btn btn-warning btn-lg " style="color: white"
                    role="button" aria-disabled="true">Wykup konto premium</a>
 
@@ -33,6 +36,8 @@
                 {{ lesson.content|safe }}
 
             {% endif %}
+
+
         </div>
 
         <div class="col-sm-4">
